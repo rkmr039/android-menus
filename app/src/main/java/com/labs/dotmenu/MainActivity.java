@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         else if(id == R.id.share) {
-            Toast.makeText(this,"Share", Toast.LENGTH_SHORT).show();
-            return false;
+            Intent i = new Intent(android.content.Intent.ACTION_SEND);
+            i.setType("text/plain");
+            startActivity(Intent.createChooser(i,"Share Using"));
+            return super.onOptionsItemSelected(item);
         }
         else{
             //case R.id.feedback:
